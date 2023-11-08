@@ -1,4 +1,4 @@
-## Diseño api-movies
+## Diseño api-CrossFit
 
 ### Descripcion de proyecto
 
