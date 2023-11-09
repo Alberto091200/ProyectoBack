@@ -6,14 +6,14 @@ module.exports = function (app) {
   app.use(json())
   app.use(morgan("dev"))
 
-  //   app.use("/api/users", require("../routes/users"))
+     app.use("/api/users", require("../routes/users"))
 
-  //   app.use("/api/movies", require("../routes/movies"))
-  //   app.use("/api/genres", require("../routes/genres"))
+     app.use("/api/categorias", require("../routes/categorias"))
+     app.use("/api/ejercicio", require("../routes/ejercicios"))
 
   app.get("/ping", (req, res) => {
     res.send({ success: true })
   })
 
-  // app.use(require("../middlewares/errors"))
+   app.use(require("../middlewares/errors"))
 }

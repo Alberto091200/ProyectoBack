@@ -1,5 +1,5 @@
 module.exports = (req, res, next) => {
-  const { isAdmin } = req.user
+  const { isAdmin } = req.users
 
   if (!isAdmin)
     return res

@@ -52,7 +52,7 @@ router.post(
     const salt = await bcrypt.genSalt(10)
     const password = await bcrypt.hash(passwordPlainText, salt)
 
-    const newUser = await User.create({ username, password, ...rest })
+    const newUser = await User.create({ username, password, email: req.body.email, isAdmin, ...rest })
 
     const token = jwt.sign(
       { id: newUser._id, isAdmin: newUser.isAdmin },

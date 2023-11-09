@@ -14,4 +14,4 @@ const ejerciciosValidation = [
 ]
 
 exports.Ejercicios = Ejercicios
-exports.ejerciciosSchema = ejerciciosValidation
+exports.ejerciciosValidation = ejerciciosValidation
