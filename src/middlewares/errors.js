@@ -4,6 +4,6 @@ module.exports = function (err, req, res, next) {
   res
     .status(500)
     .send(
-      "Estamos trabajando para que todo funcione correctamente, gracias y perdon por las molestias"
+      "No funciona, esperate un poquito"
     )
 }
