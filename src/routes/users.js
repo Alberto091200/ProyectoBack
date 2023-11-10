@@ -64,4 +64,31 @@ router.post(
   }
 )
 
+router.post('/suscribirse', async (req, res) => {
+  const {userId, categoriaId} = req.body;
+
+  try {
+    const user  = await User.findByIdAndUpdate(
+      userId,
+      {$addToSet : {categoriasSuscritas: categoriaId}},
+      {new:true}
+    )
+    res.json(user)
+  }catch (err){
+    res.status(500).json({err:'Error al suscribirse a la categoria'})
+  }
+})
+
+router.get('/:userId/categorias-suscritas', async (req, res) => {
+  const { userId } = req.params;
+
+  try {
+    const user = await User.findById(userId).populate('categoriasSuscritas');
+    res.json(user.categoriasSuscritas);
+  } catch (error) {
+    res.status(500).json({ error: 'Error al obtener las categorías suscritas del usuario' });
+  }
+});
+
+
 module.exports = router

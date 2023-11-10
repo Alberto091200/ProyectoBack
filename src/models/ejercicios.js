@@ -3,7 +3,7 @@ const { body } = require("express-validator")
 
 const ejerciciosSchema = new mongoose.Schema({
   title: { type: String, required: true },
-  categorias: { type: mongoose.ObjectId, ref: "Categorias" },
+  categorias: { type: mongoose.ObjectId, required: true, ref:"Categorias" },
 })
 
 const Ejercicios = mongoose.model("Ejercicios", ejerciciosSchema)

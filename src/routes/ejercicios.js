@@ -13,23 +13,27 @@ const router = Router()
 
 const { query } = require('express-validator')
 
-router.get(
-	'/categoria/:categoriaId/:ejercicioId',
-	mongoIdFromParamValidation('ejercicioId'),
-	ejerciciosController.getById
+router.get('/', auth, ejerciciosController.getAll)
+
+router.post(
+	'/',
+ 	auth,
+	ejerciciosValidation,
+	validate,
+	ejerciciosController.create
 )
 
-router.post('/ejercicios', auth, ejerciciosValidation, validate, ejerciciosController.create)
 router.put(
-	'/categoria/:categoriaId/:ejercicioId',
+	'/:categoriaId/:ejercicioId',
 	auth,
 	mongoIdFromParamValidation('ejercicioId'),
 	ejerciciosValidation,
 	validate,
 	ejerciciosController.update
 )
+
 router.delete(
-	'/categoria/:categoriaId/:ejercicioId',
+	'/:categoriaId/:ejercicioId',
 	auth,
 	admin,
 	mongoIdFromParamValidation('ejercicioId'),

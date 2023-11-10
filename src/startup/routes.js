@@ -9,7 +9,7 @@ module.exports = function (app) {
      app.use("/api/users", require("../routes/users"))
 
      app.use("/api/categorias", require("../routes/categorias"))
-     app.use("/api/ejercicio", require("../routes/ejercicios"))
+     app.use("/api/ejercicios", require("../routes/ejercicios"))
 
   app.get("/ping", (req, res) => {
     res.send({ success: true })
